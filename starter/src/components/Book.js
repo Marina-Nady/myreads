@@ -1,8 +1,8 @@
 
-
+import {useState,useEffect} from 'react'
+import {update} from '../BooksAPI'
 function Book(props) {
     return ( 
-        
         props.book.map((book)=>(
         <li key={book.id}>
             <div className="book">
@@ -17,16 +17,27 @@ function Book(props) {
                 }}
             ></div>
             <div className="book-shelf-changer">
-                <select>
-                <option value="none" disabled>
-                    Move to...
-                </option>
-                <option value="currentlyReading">
-                    Currently Reading
-                </option>
-                <option value="wantToRead">Want to Read</option>
-                <option value="read">Read</option>
-                <option value="none">None</option>
+                <select defaultValue={book.shelf} onChange={(e)=>{
+                    let id = {id:book.id}
+                    console.log(e.target.value)
+                    update(id,e.target.value)
+                    .then((res)=>{
+                        window.location.href="/";
+                    })
+                    .catch((err)=>{
+                        console.log(err)
+                    })
+
+                }}>
+                    <option value="none" disabled>
+                        Move to...
+                    </option>
+                    <option value="currentlyReading">
+                        Currently Reading
+                    </option>
+                    <option value="wantToRead">Want to Read</option>
+                    <option value="read">Read</option>
+                    <option value="none">None</option>
                 </select>
             </div>
             </div>

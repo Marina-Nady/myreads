@@ -17,11 +17,11 @@ function Home() {
     return ( 
         <div>
             <BookShelf title="Currently Reading" 
-                        book={books.filter( book => book.shelf === "currentlyReading")}/>
+                        books={books.filter( book => book.shelf === "currentlyReading")}/>
             <BookShelf title="Want to Read"
-                        book={books.filter( book => book.shelf === "wantToRead")}/>
+                        books={books.filter( book => book.shelf === "wantToRead")}/>
             <BookShelf title="Read"
-                        book={books.filter( book => book.shelf === "read")}/>
+                        books={books.filter( book => book.shelf === "read")}/>
         </div>
     );
     }
