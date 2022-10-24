@@ -4,8 +4,8 @@ function Book(props) {
     return ( 
         
         props.book.map((book)=>(
-        <li>
-            <div className="book" key={ book.id}>
+        <li key={book.id}>
+            <div className="book">
             <div className="book-top">
             <div
                 className="book-cover"

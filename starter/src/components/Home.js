@@ -7,7 +7,6 @@ function Home() {
     useEffect(() => {
         getAll()
         .then((res)=>{
-            console.log(res)
             setBooks(res)
         })
         .catch((err)=>{

@@ -1,10 +1,14 @@
 import "./App.css";
 import { useState  } from "react";
+import { Link } from "react-router-dom";
 import Home from "./components/Home";
+
 function App() {
   const [showSearchPage, setShowSearchpage] = useState(false);
 
   return (
+
+    
     <div className="app">
       {showSearchPage ? (
         <div className="search-books">
@@ -34,9 +38,15 @@ function App() {
           <div className="list-books-content">
             <Home/>
           </div>
-          <div className="open-search">
+          <Link to="/search">
+            <div className="open-search">
+              <a >Add a book</a>
+            </div>
+          </Link>
+
+          {/* <div className="open-search">
             <a onClick={() => setShowSearchpage(!showSearchPage)}>Add a book</a>
-          </div>
+          </div> */}
         </div>
       )}
     </div>
