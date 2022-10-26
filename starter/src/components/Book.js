@@ -12,24 +12,25 @@ function Book(props) {
                 style={{
                 width: 128,
                 height: 193,
-                backgroundImage:
-                    `url(${book.imageLinks.thumbnail})`,
+                backgroundImage: book.imageLinks.thumbnail ?
+                    `url(${book.imageLinks.thumbnail})` :
+                    `url(https://picsum.photos/id/237/200/300)`,
                 }}
             ></div>
             <div className="book-shelf-changer">
-                <select value={book.shelf} onChange={(e)=>{
-                    let id = {id:book.id}
-                    console.log(e.target.value)
-                    update(id,e.target.value)
-                    .then((res)=>{
-                        window.location.href="/";
-                    })
-                    .catch((err)=>{
-                        console.log(err)
-                    })
-
-                }}>
-                    <option value="none" disabled>
+                <select value={book.shelf} 
+                        onChange={(e)=>{
+                            let id = {id:book.id}
+                            console.log(e.target.value)
+                            update(id,e.target.value)
+                            .then((res)=>{
+                                window.location.href="/";
+                            })
+                            .catch((err)=>{
+                                console.log(err)
+                            })
+                        }}>
+                    <option  disabled>
                         Move to...
                     </option>
                     <option value="currentlyReading">
