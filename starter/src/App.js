@@ -1,55 +1,16 @@
 import "./App.css";
-import { useState  } from "react";
-import { Link } from "react-router-dom";
-import Home from "./components/Home";
+import { Routes,Route} from "react-router-dom";
+import Home from './components/Home'
+import Search from './components/Search'
 
 function App() {
-  const [showSearchPage, setShowSearchpage] = useState(false);
 
   return (
+    <Routes>
+      <Route path="/" exact element={<Home />} />
+      <Route path="/search" element={<Search />} />
+    </Routes>
 
-    
-    <div className="app">
-      {showSearchPage ? (
-        <div className="search-books">
-          <div className="search-books-bar">
-            <a
-              className="close-search"
-              onClick={() => setShowSearchpage(!showSearchPage)}
-            >
-              Close
-            </a>
-            <div className="search-books-input-wrapper">
-              <input
-                type="text"
-                placeholder="Search by title, author, or ISBN"
-              />
-            </div>
-          </div>
-          <div className="search-books-results">
-            <ol className="books-grid"></ol>
-          </div>
-        </div>
-      ) : (
-        <div className="list-books">
-          <div className="list-books-title">
-            <h1>MyReads</h1>
-          </div>
-          <div className="list-books-content">
-            <Home/>
-          </div>
-          <Link to="/search">
-            <div className="open-search">
-              <a >Add a book</a>
-            </div>
-          </Link>
-
-          {/* <div className="open-search">
-            <a onClick={() => setShowSearchpage(!showSearchPage)}>Add a book</a>
-          </div> */}
-        </div>
-      )}
-    </div>
   );
 }
 
