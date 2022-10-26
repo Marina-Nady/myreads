@@ -17,7 +17,7 @@ function Book(props) {
                 }}
             ></div>
             <div className="book-shelf-changer">
-                <select defaultValue={book.shelf} onChange={(e)=>{
+                <select value={book.shelf} onChange={(e)=>{
                     let id = {id:book.id}
                     console.log(e.target.value)
                     update(id,e.target.value)
